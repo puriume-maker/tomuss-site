@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>住宅設備 — 株式会社須藤商店</title>
+    <meta name="description" content="水回りリフォーム・ボイラー・ストーブの販売修理・家電販売。にかほ市指定の給排水工事設計施工業者。">
+    <meta property="og:title" content="住宅設備 — 株式会社須藤商店">
+    <meta property="og:description" content="水回りリフォーム・ボイラー・ストーブの販売修理。秋田県にかほ市。">
+    <meta property="og:image" content="https://tomuss.com/ogp.png">
+    <meta property="og:url" content="https://tomuss.com/home">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="住宅設備 — 株式会社須藤商店">
+    <meta name="twitter:description" content="水回りリフォーム・ボイラー・ストーブの販売修理。秋田県にかほ市。">
+    <meta name="twitter:image" content="https://tomuss.com/ogp.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FAFAFA; --off-white: #F2F2F0; --light-gray: #E8E8E5;
+            --navy: #1A2332; --navy-light: #2A3647; --navy-soft: #3D4F63;
+            --text-primary: #1A2332; --text-secondary: #5A6570; --text-light: #8A9098;
+            --accent-gold: #C4A265; --accent-gold-light: #D4B87A; --border: #DDDDD8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
+            color: var(--text-primary); background-color: var(--white);
+            line-height: 1.8; letter-spacing: 0.03em; -webkit-font-smoothing: antialiased;
+        }
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            padding: 1.5rem 3rem; display: flex; justify-content: space-between;
+            align-items: center; background: rgba(26,35,50,0.95); backdrop-filter: blur(20px);
+        }
+        .nav-logo { font-weight: 500; font-size: 0.95rem; letter-spacing: 0.1em; color: #fff; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-weight: 400; font-size: 0.78rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #fff; }
+
+        .page-hero { position: relative; width: 100%; height: 45vh; min-height: 320px; overflow: hidden; background-color: var(--navy); }
+        .page-hero-placeholder {
+            width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .page-hero-content {
+            position: relative; z-index: 2; height: 100%;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding-top: 4rem;
+            position: absolute; top: 0; left: 0; width: 100%;
+        }
+        .page-hero-label { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 0.8rem; }
+        .page-hero-title { font-weight: 500; font-size: clamp(1.3rem, 3vw, 2rem); letter-spacing: 0.12em; color: #fff; }
+
+        section { padding: 5rem 2rem; }
+        .container { max-width: 860px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 0.8rem; }
+        .section-title { font-weight: 500; font-size: 1.4rem; letter-spacing: 0.12em; color: var(--text-primary); }
+
+        .content-block { margin-bottom: 3rem; }
+        .content-block h3 {
+            font-weight: 500; font-size: 1.1rem; letter-spacing: 0.08em;
+            color: var(--text-primary); margin-bottom: 1rem;
+            padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+        }
+        .content-block p { font-size: 0.92rem; line-height: 2; color: var(--text-secondary); margin-bottom: 1rem; }
+        .content-block ul { list-style: none; padding: 0; }
+        .content-block ul li {
+            font-size: 0.92rem; color: var(--text-secondary);
+            padding: 0.5rem 0; border-bottom: 1px solid var(--light-gray);
+            padding-left: 1.2rem; position: relative;
+        }
+        .content-block ul li::before {
+            content: ''; position: absolute; left: 0; top: 50%;
+            width: 6px; height: 6px; background: var(--accent-gold);
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .service-cards {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .service-card-item {
+            background: var(--off-white); padding: 2rem 1.5rem;
+            border: 1px solid var(--light-gray);
+        }
+        .service-card-item h4 {
+            font-weight: 500; font-size: 1rem; letter-spacing: 0.05em;
+            color: var(--text-primary); margin-bottom: 0.8rem;
+        }
+        .service-card-item p {
+            font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;
+        }
+
+        .badge {
+            display: inline-block; font-size: 0.78rem; color: var(--accent-gold);
+            border: 1px solid var(--accent-gold); padding: 0.4rem 1rem;
+            letter-spacing: 0.05em; margin-top: 1rem;
+        }
+
+        .contact-banner { background-color: var(--off-white); text-align: center; }
+        .contact-banner .section-title { margin-bottom: 2rem; }
+        .contact-info { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
+        .contact-tel { display: flex; flex-direction: column; align-items: center; }
+        .contact-tel-label { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+        .contact-tel-number { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 2rem; color: var(--navy); letter-spacing: 0.05em; text-decoration: none; }
+        .contact-divider { width: 1px; height: 50px; background: var(--border); }
+        .contact-form-link {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-size: 0.9rem; font-weight: 400; color: var(--white);
+            background: var(--navy); padding: 1rem 2.5rem;
+            text-decoration: none; letter-spacing: 0.08em; transition: background 0.3s ease;
+        }
+        .contact-form-link:hover { background: var(--navy-light); }
+
+        .footer { background-color: var(--navy); color: rgba(255,255,255,0.5); padding: 4rem 2rem 2rem; }
+        .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-company-name { font-weight: 500; font-size: 1rem; color: #fff; letter-spacing: 0.08em; margin-bottom: 1rem; }
+        .footer-address { font-size: 0.8rem; line-height: 2; color: rgba(255,255,255,0.5); }
+        .footer-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+        .footer-nav a { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s ease; }
+        .footer-nav a:hover { color: var(--accent-gold); }
+        .footer-bottom { max-width: 1080px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.72rem; letter-spacing: 0.1em; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav { padding: 1.2rem 1.5rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.7rem; }
+            section { padding: 3.5rem 1.5rem; }
+            .page-hero { height: 35vh; min-height: 260px; }
+            .service-cards { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; gap: 1.5rem; }
+            .contact-divider { width: 50px; height: 1px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-nav { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">須藤商店</a>
+        <ul class="nav-links">
+            <li><a href="/#services">事業内容</a></li>
+            <li><a href="/about">会社概要</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-placeholder"></div>
+        <div class="page-hero-content">
+            <p class="page-hero-label">Home Equipment</p>
+            <h1 class="page-hero-title">住宅設備</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Service</p>
+                <h2 class="section-title reveal">暮らしの安心をサポート</h2>
+            </div>
+            <div class="content-block reveal">
+                <p>
+                    水回りのリフォームからボイラー・ストーブの販売修理、家電製品まで、
+                    住まいに関するお困りごとをトータルでサポートいたします。
+                    にかほ市指定の給排水工事設計施工業者として、
+                    確かな技術と豊富な経験でお応えします。
+                </p>
+                <span class="badge">にかほ市指定 給排水工事設計施工業者</span>
+            </div>
+
+            <div class="service-cards reveal">
+                <div class="service-card-item">
+                    <h4>水回りリフォーム</h4>
+                    <p>キッチン・浴室・トイレ・洗面所のリフォーム工事。お見積りから施工までお任せください。</p>
+                </div>
+                <div class="service-card-item">
+                    <h4>ボイラー</h4>
+                    <p>ガスボイラー・灯油ボイラーの販売・設置・修理。急な故障にも迅速に対応いたします。</p>
+                </div>
+                <div class="service-card-item">
+                    <h4>ストーブ</h4>
+                    <p>各種ストーブの販売・設置・修理。秋田の冬を快適に過ごすためのご提案をいたします。</p>
+                </div>
+                <div class="service-card-item">
+                    <h4>家電製品</h4>
+                    <p>各種家電製品の販売。設置・取付工事もお任せください。</p>
+                </div>
+            </div>
+
+            <div class="content-block reveal">
+                <h3>対応工事</h3>
+                <ul>
+                    <li>給水・排水設備工事</li>
+                    <li>ガス配管工事</li>
+                    <li>水回りリフォーム（キッチン・浴室・トイレ・洗面）</li>
+                    <li>ボイラー設置・交換・修理</li>
+                    <li>ストーブ設置・修理</li>
+                    <li>家電製品の設置・取付</li>
+                    <li>その他住宅設備に関するご相談</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-banner">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Contact</p>
+                <h2 class="section-title reveal">お問い合わせ</h2>
+            </div>
+            <div class="contact-info reveal">
+                <div class="contact-tel">
+                    <span class="contact-tel-label">お電話でのお問い合わせ（フリーダイヤル）</span>
+                    <a href="tel:0120462302" class="contact-tel-number">0120-46-2302</a>
+                </div>
+                <div class="contact-divider"></div>
+                <a href="/contact" class="contact-form-link">メールでのお問い合わせ →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p class="footer-company-name">株式会社須藤商店</p>
+                <div class="footer-address">〒018-0148 秋田県にかほ市象潟町下浜山7-3<br>TEL 0120-46-2302</div>
+            </div>
+            <nav class="footer-nav">
+                <a href="/station">パインツリーイントムSS</a>
+                <a href="/energy">エネルギー事業</a>
+                <a href="/car">くるま屋トム</a>
+                <a href="/shop">トム太商店</a>
+                <a href="/home">住宅設備</a>
+                <a href="/farm">農園部</a>
+                <a href="/about">会社概要</a>
+                <a href="/contact">お問い合わせ</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">&copy; 2026 株式会社須藤商店 All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
