@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社須藤商店 — みなさまの生活を豊かにする</title>
+    <meta name="description" content="秋田県にかほ市の地域密着型総合生活サービス企業。ガソリンスタンド、エネルギー、自動車、住宅設備、農園まで、暮らしを支えます。">
+
+    <!-- OGP -->
+    <meta property="og:title" content="株式会社須藤商店 — みなさまの生活を豊かにする">
+    <meta property="og:description" content="秋田県にかほ市の地域密着型総合生活サービス企業。1976年創業。">
+    <meta property="og:image" content="https://tomuss.com/ogp.png">
+    <meta property="og:url" content="https://tomuss.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="株式会社須藤商店 — みなさまの生活を豊かにする">
+    <meta name="twitter:description" content="秋田県にかほ市の地域密着型総合生活サービス企業。1976年創業。">
+    <meta name="twitter:image" content="https://tomuss.com/ogp.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FAFAFA;
+            --off-white: #F2F2F0;
+            --light-gray: #E8E8E5;
+            --navy: #1A2332;
+            --navy-light: #2A3647;
+            --navy-soft: #3D4F63;
+            --text-primary: #1A2332;
+            --text-secondary: #5A6570;
+            --text-light: #8A9098;
+            --accent-gold: #C4A265;
+            --accent-gold-light: #D4B87A;
+            --border: #DDDDD8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 300; color: var(--text-primary);
+            background-color: var(--white); line-height: 1.8;
+            letter-spacing: 0.03em; -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            padding: 1.5rem 3rem; display: flex; justify-content: space-between;
+            align-items: center; transition: all 0.5s ease;
+        }
+        .nav.scrolled {
+            background: rgba(26,35,50,0.95); backdrop-filter: blur(20px);
+            padding: 1rem 3rem;
+        }
+        .nav-logo {
+            font-weight: 500; font-size: 0.95rem; letter-spacing: 0.1em;
+            color: #fff; text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            font-weight: 400; font-size: 0.78rem; letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.75); text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; width: 100%; height: 100vh;
+            min-height: 600px; overflow: hidden; background-color: var(--navy);
+        }
+        .hero-image {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center center;
+            opacity: 0; animation: fadeIn 2s ease-out 0.3s forwards;
+            filter: brightness(0.6);
+        }
+        .hero-content {
+            position: relative; z-index: 2; height: 100%;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center;
+            opacity: 0; animation: fadeUp 1.5s ease-out 0.8s forwards;
+        }
+        .hero-sub {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem); letter-spacing: 0.3em;
+            color: var(--accent-gold); margin-bottom: 1.5rem;
+        }
+        .hero-title {
+            font-weight: 500; font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+            letter-spacing: 0.12em; color: #fff; margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .hero-company {
+            font-weight: 700; font-size: clamp(1rem, 2vw, 1.4rem);
+            letter-spacing: 0.15em; color: #fff; margin-bottom: 2.5rem;
+        }
+        .hero-tel {
+            display: flex; align-items: center; gap: 0.8rem;
+            color: rgba(255,255,255,0.7); font-size: 0.85rem;
+        }
+        .hero-tel-number {
+            font-family: 'Playfair Display', serif; font-weight: 500;
+            font-size: 1.4rem; color: #fff; letter-spacing: 0.08em;
+        }
+        .scroll-indicator {
+            position: absolute; bottom: 2.5rem; left: 50%;
+            transform: translateX(-50%); z-index: 3;
+            opacity: 0; animation: fadeIn 1s ease-out 2s forwards;
+        }
+        .scroll-indicator span {
+            display: block; width: 1px; height: 48px;
+            background: rgba(255,255,255,0.3); margin: 0 auto;
+            animation: scrollPulse 2.5s ease-in-out infinite;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 6rem 2rem; }
+        .container { max-width: 1080px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase;
+            color: var(--accent-gold); margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-weight: 500; font-size: 1.5rem; letter-spacing: 0.12em;
+            color: var(--text-primary);
+        }
+
+        /* ===== SERVICES ===== */
+        .services { background-color: var(--white); }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .service-card {
+            position: relative; overflow: hidden;
+            background: var(--off-white); text-decoration: none;
+            color: var(--text-primary); transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26,35,50,0.08);
+        }
+        .service-card-image {
+            width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-card-image {
+            transform: scale(1.05);
+        }
+        .service-card-image-wrapper { overflow: hidden; }
+        .service-card-body { padding: 1.8rem 1.5rem; }
+        .service-card-label {
+            font-family: 'Playfair Display', serif; font-size: 0.65rem;
+            letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--accent-gold); margin-bottom: 0.5rem;
+        }
+        .service-card-title {
+            font-weight: 500; font-size: 1.05rem; letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+        .service-card-desc {
+            font-size: 0.82rem; color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .service-card-arrow {
+            position: absolute; bottom: 1.5rem; right: 1.5rem;
+            font-size: 1.2rem; color: var(--accent-gold);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .service-card:hover .service-card-arrow { opacity: 1; }
+
+        /* ===== ABOUT PREVIEW ===== */
+        .about-preview { background-color: var(--navy); color: #fff; }
+        .about-preview .section-label { color: var(--accent-gold); }
+        .about-preview .section-title { color: #fff; }
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center; margin-top: 3rem;
+        }
+        .about-text p {
+            font-size: 0.92rem; line-height: 2.2; color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+        .about-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Playfair Display', serif; font-weight: 500;
+            font-size: 2.8rem; color: var(--accent-gold);
+            line-height: 1.2;
+        }
+        .stat-unit {
+            font-family: 'Playfair Display', serif; font-size: 1rem;
+            color: var(--accent-gold);
+        }
+        .stat-label {
+            font-size: 0.78rem; color: rgba(255,255,255,0.6);
+            margin-top: 0.3rem; letter-spacing: 0.08em;
+        }
+        .about-link {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-size: 0.85rem; color: var(--accent-gold);
+            text-decoration: none; letter-spacing: 0.08em;
+            transition: gap 0.3s ease;
+        }
+        .about-link:hover { gap: 1rem; }
+        .about-link::after { content: '→'; font-size: 1rem; }
+
+        /* ===== CONTACT BANNER ===== */
+        .contact-banner { background-color: var(--off-white); text-align: center; }
+        .contact-banner .section-title { margin-bottom: 2rem; }
+        .contact-info {
+            display: flex; justify-content: center; align-items: center;
+            gap: 3rem; flex-wrap: wrap;
+        }
+        .contact-tel {
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .contact-tel-label {
+            font-size: 0.75rem; color: var(--text-light);
+            letter-spacing: 0.1em; margin-bottom: 0.3rem;
+        }
+        .contact-tel-number {
+            font-family: 'Playfair Display', serif; font-weight: 500;
+            font-size: 2rem; color: var(--navy); letter-spacing: 0.05em;
+        }
+        .contact-divider {
+            width: 1px; height: 50px; background: var(--border);
+        }
+        .contact-form-link {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-size: 0.9rem; font-weight: 400; color: var(--white);
+            background: var(--navy); padding: 1rem 2.5rem;
+            text-decoration: none; letter-spacing: 0.08em;
+            transition: background 0.3s ease;
+        }
+        .contact-form-link:hover { background: var(--navy-light); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--navy); color: rgba(255,255,255,0.5);
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-grid {
+            max-width: 1080px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 2fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-company-name {
+            font-weight: 500; font-size: 1rem; color: #fff;
+            letter-spacing: 0.08em; margin-bottom: 1rem;
+        }
+        .footer-address {
+            font-size: 0.8rem; line-height: 2; color: rgba(255,255,255,0.5);
+        }
+        .footer-nav {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+        .footer-nav a {
+            font-size: 0.8rem; color: rgba(255,255,255,0.5);
+            text-decoration: none; transition: color 0.3s ease;
+        }
+        .footer-nav a:hover { color: var(--accent-gold); }
+        .footer-bottom {
+            max-width: 1080px; margin: 0 auto;
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center; font-size: 0.72rem; letter-spacing: 0.1em;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.2; transform: scaleY(0.6); transform-origin: top; }
+            50% { opacity: 0.5; transform: scaleY(1); }
+        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav { padding: 1.2rem 1.5rem; }
+            .nav.scrolled { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.7rem; }
+            section { padding: 4rem 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-info { flex-direction: column; gap: 1.5rem; }
+            .contact-divider { width: 50px; height: 1px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-nav { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">須藤商店</a>
+        <ul class="nav-links">
+            <li><a href="#services">事業内容</a></li>
+            <li><a href="#about">会社概要</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="hero-station.jpeg" alt="パインツリーイントムSS" class="hero-image">
+        <div class="hero-content">
+            <p class="hero-sub">Since 1976</p>
+            <h1 class="hero-title">みなさまの生活を豊かにする</h1>
+            <p class="hero-company">株式会社 須藤商店</p>
+            <a href="tel:0120462302" class="hero-tel" style="text-decoration:none;">
+                <span>お電話でのお問い合わせ</span>
+                <span class="hero-tel-number">0120-46-2302</span>
+            </a>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Services</p>
+                <h2 class="section-title reveal">事業内容</h2>
+            </div>
+            <div class="services-grid">
+
+                <a href="/station" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <img src="hero-station.jpeg" alt="パインツリーイントムSS" class="service-card-image">
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Gas Station</p>
+                        <h3 class="service-card-title">パインツリーイントムSS</h3>
+                        <p class="service-card-desc">ENEOS特約店。ガソリン・軽油の販売。</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+                <a href="/energy" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <img src="photo-honsha.png" alt="エネルギー事業" class="service-card-image">
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Energy</p>
+                        <h3 class="service-card-title">エネルギー事業</h3>
+                        <p class="service-card-desc">灯油配達・LPガス・太陽光発電・風力発電</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+                <a href="/car" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <img src="photo-car.jpg" alt="くるま屋トム" class="service-card-image">
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Car</p>
+                        <h3 class="service-card-title">くるま屋トム</h3>
+                        <p class="service-card-desc">新車・中古車販売、車検・整備</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+                <a href="/shop" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <img src="photo-shop.jpg" alt="トム太商店" class="service-card-image">
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Shop</p>
+                        <h3 class="service-card-title">トム太商店</h3>
+                        <p class="service-card-desc">工具・日用品・酒類の販売、楽天市場店</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+                <a href="/home" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <div style="width:100%;aspect-ratio:16/10;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem;">写真準備中</div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Home</p>
+                        <h3 class="service-card-title">住宅設備</h3>
+                        <p class="service-card-desc">水回りリフォーム・ボイラー・ストーブの販売修理</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+                <a href="/farm" class="service-card reveal">
+                    <div class="service-card-image-wrapper">
+                        <div style="width:100%;aspect-ratio:16/10;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem;">写真準備中</div>
+                    </div>
+                    <div class="service-card-body">
+                        <p class="service-card-label">Farm</p>
+                        <h3 class="service-card-title">農園部</h3>
+                        <p class="service-card-desc">地域の農と食をつなぐ</p>
+                    </div>
+                    <span class="service-card-arrow">→</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview" id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">About Us</p>
+                <h2 class="section-title reveal">会社概要</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        1976年の創業以来、秋田県にかほ市を拠点に、
+                        エネルギー供給から自動車、住宅設備まで、
+                        地域のみなさまの暮らしを支え続けてきました。
+                    </p>
+                    <p>
+                        商品やサービスを通して、
+                        幅広く地域社会に貢献する。<br>
+                        高い理想をもって妥協せず前進する。<br>
+                        それが、わたしたちの変わらない信条です。
+                    </p>
+                    <a href="/about" class="about-link">会社概要を見る</a>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat-item">
+                        <p class="stat-number">1976<span class="stat-unit">年</span></p>
+                        <p class="stat-label">創業</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">4<span class="stat-unit">拠点</span></p>
+                        <p class="stat-label">にかほ市内</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">6<span class="stat-unit">事業</span></p>
+                        <p class="stat-label">部門</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">15<span class="stat-unit">種以上</span></p>
+                        <p class="stat-label">保有資格</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Banner -->
+    <section class="contact-banner" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Contact</p>
+                <h2 class="section-title reveal">お問い合わせ</h2>
+            </div>
+            <div class="contact-info reveal">
+                <div class="contact-tel">
+                    <span class="contact-tel-label">お電話でのお問い合わせ（フリーダイヤル）</span>
+                    <a href="tel:0120462302" class="contact-tel-number" style="text-decoration:none;color:inherit;">0120-46-2302</a>
+                </div>
+                <div class="contact-divider"></div>
+                <a href="/contact" class="contact-form-link">
+                    メールでのお問い合わせ →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p class="footer-company-name">株式会社須藤商店</p>
+                <div class="footer-address">
+                    〒018-0148 秋田県にかほ市象潟町下浜山7-3<br>
+                    TEL 0120-46-2302
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="/station">パインツリーイントムSS</a>
+                <a href="/energy">エネルギー事業</a>
+                <a href="/car">くるま屋トム</a>
+                <a href="/shop">トム太商店</a>
+                <a href="/home">住宅設備</a>
+                <a href="/farm">農園部</a>
+                <a href="/about">会社概要</a>
+                <a href="/contact">お問い合わせ</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 株式会社須藤商店 All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 80);
+        });
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
